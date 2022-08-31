@@ -90,3 +90,9 @@ body {
     font-size: 5vh;
     font-weight: bolder;
 }
+
+@media screen and (max-width: 800px) {
+    .box {
+        margin: 1em 2em;
+    }
+}

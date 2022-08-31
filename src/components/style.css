@@ -44,5 +44,12 @@ body {
 }
 
 
+@media screen and (max-width: 800px){
+    .container {
+        margin: 1em 2em;
+    }
+}
+
+
 
 

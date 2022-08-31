@@ -29,7 +29,7 @@ const Header = () => {
           YON
         </div>
         {isLoggedIn && (
-          <Box display="flex" marginLeft={"auto"} marginRight="auto">
+          <Box display="flex" marginLeft={"auto"}>
             <Tabs
               textColor="inherit"
               value={value}
@@ -39,17 +39,26 @@ const Header = () => {
                 className={classes.font}
                 LinkComponent={Link}
                 to="/blogs"
+                sx={{
+                  fontSize: "1.2rem",
+                }}
                 label="All Blogs"
               />
               <Tab
                 className={classes.font}
                 LinkComponent={Link}
+                sx={{
+                  fontSize: "1.2rem",
+                }}
                 to="/myBlogs"
                 label="My Blogs"
               />
               <Tab
                 className={classes.font}
                 LinkComponent={Link}
+                sx={{
+                  fontSize: "1.2rem",
+                }}
                 to="/blogs/add"
                 label="Add Blog"
               />

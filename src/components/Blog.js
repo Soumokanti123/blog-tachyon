@@ -10,14 +10,19 @@ import {
 } from "@mui/material";
 import EditTwoToneIcon from "@mui/icons-material/EditTwoTone";
 import DeleteSweepTwoToneIcon from "@mui/icons-material/DeleteSweepTwoTone";
+import ThumbUpTwoToneIcon from "@mui/icons-material/ThumbUpTwoTone";
+import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import { useNavigate } from "react-router-dom";
-import React from "react";
+import React, { useState } from "react";
 import { useStyles } from "./utils";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 const Blog = ({ title, description, imageURL, userName, isUser, id }) => {
   const navigate = useNavigate();
   const classes = useStyles();
+  
+
   const handleEdit = () => {
     navigate(`/myBlogs/${id}`);
   };
@@ -32,74 +37,81 @@ const Blog = ({ title, description, imageURL, userName, isUser, id }) => {
   const handleDelete = () => {
     deleteRequest().then(() => navigate("/").then(() => navigate("/blogs")));
   };
+  
+  // time stamp
+  const date = new Date();
+  const d = date.getDate();
+  const day = (d < 10 ? "0" : "") + d;
+  const m = date.getMonth() + 1;
+  const month = (m < 10 ? "0" : "") + m;
+  const year = date.getFullYear();
+  const h = date.getHours();
+  const hour = (h < 10 ? "0" : "") + h;
+  const min = date.getMinutes();
+  const minute = (min < 10 ? "0" : "") + min;
+  const sec = date.getSeconds();
+  const second = (sec < 10 ? "0" : "") + sec;
+  
+  const time = `${day}/${month}/${year} ${hour}:${minute}:${second}`;
+  
+
+
   return (
     <div>
       {" "}
       <Card
         sx={{
-          width: "40%",
-          margin: " auto",
-          background: "#21212c",
-          color: "#fff",
+          width: "50%",
+          margin: "auto",
           mt: 2,
           padding: 2,
-          boxShadow: "3px 1px 20px #2B34D9",
+          border: "2px black solid",
+          borderRadius: "10px",
           ":hover": {
-            boxShadow: "5px 10px 20px #2B34D9",
+            boxShadow: "2px 3px 20px #2B34D9",
           },
-          borderRadius: 3,
         }}
       >
         {isUser && (
           <Box display="flex">
-            <IconButton
-              onClick={handleEdit}
-              sx={{ marginLeft: "auto", color: "lightgreen" }}
-            >
-              <EditTwoToneIcon />
+            <IconButton onClick={handleEdit} sx={{ marginLeft: "auto" }}>
+              <EditTwoToneIcon sx={{ color: "lightgreen" }} />
             </IconButton>
-            <IconButton onClick={handleDelete} sx={{ color: "red" }}>
-              <DeleteSweepTwoToneIcon />
+            <IconButton onClick={handleDelete}>
+              <DeleteSweepTwoToneIcon color="error" />
             </IconButton>
           </Box>
         )}
         <CardHeader
           avatar={
             <Avatar
-              className={classes.font}
+              // className={classes.font}
               sx={{ bgcolor: "red" }}
               aria-label="recipe"
             >
-              {userName.charAt(0)}
+              {userName ? userName.charAt(0) : ""}
             </Avatar>
           }
-          title={title}
-          
+          title={userName}
+          subheader= {time}
         />
-        <CardMedia
-          sx={{
-            borderRadius: 2,
-          }}
-          component="img"
-          height="194"
-          image={imageURL}
-          alt="Paella dish"
-        />
+        <CardMedia component="img" height="200" image={imageURL} alt="img" />
 
         <CardContent>
-          <hr />
           <br />
           <Typography
-            className={classes.font}
+            // className={classes.font}
             variant="body2"
             color="text.secondary"
-            sx={{ color: "white" }}
           >
-            <b>{userName}</b> {": "}
+            <b>
+              <h1>{title}</h1>
+            </b>
+            <br />
             {description}
           </Typography>
         </CardContent>
-      </Card>
+      </Card>{" "}
     </div>
   );
 };

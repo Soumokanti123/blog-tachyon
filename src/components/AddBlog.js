@@ -1,18 +1,11 @@
 import React, { useState } from "react";
-import {
-  AppBar,
-  Toolbar,
-  Typography,
-  Box,
-  Button,
-  Tabs,
-  Tab,
-  InputLabel,
-  TextField,
-} from "@mui/material";
+
+import "./AddBlog.css";
 import { useNavigate } from "react-router-dom";
 import { useStyles } from "./utils";
 import axios from "axios";
+
+
 
 const labelStyles = {
   mb: 1,
@@ -60,83 +53,41 @@ const AddBlog = () => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <Box
-          color="white"
-          border={3}
-          borderColor="#4FF5F3"
-          borderRadius={5}
-          boxShadow="2px 3px 20px #2B34D9"
-          padding={3}
-          margin={"auto"}
-          marginTop={3}
-          display="flex"
-          flexDirection="column"
-          width={"60%"}
-        >
-          <Typography
-            className={classes.font}
-            fontWeight={"bold"}
-            padding={3}
-            color="grey"
-            variant="h2"
-            textAlign={"center"}
-          >
-            Post Your Blog
-          </Typography>
-          <InputLabel className={classes.font} sx={labelStyles}>
-            Title
-          </InputLabel>
-          <TextField
-            className={classes.font}
+        <div className="box2">
+          <div className="log2">POST BLOG</div>
+          <br />
+          TITLE <br />
+          <textarea
+            className="inp2"
             name="title"
             onChange={handleChange}
             value={inputs.title}
-            variant="outlined"
-            margin="normal"
-          />
-          <InputLabel className={classes.font} sx={labelStyles}>
-            Description
-          </InputLabel>
-          <TextField
-            className={classes.font}
+            rows="3"
+          ></textarea>
+          <br />
+          DESCRIPTION <br />
+          <textarea
+            className="inp2"
             name="description"
             onChange={handleChange}
             value={inputs.description}
-            variant="outlined"
-            margin="normal"
-          />
-          <InputLabel className={classes.font} sx={labelStyles}>
-            ImageURL
-          </InputLabel>
-          <TextField
-            className={classes.font}
+            rows="6"
+          ></textarea>
+          <br />
+          IMAGE URL <br />
+          <textarea
+            className="inp2"
             name="imageURL"
             onChange={handleChange}
             value={inputs.imageURL}
-            variant="outlined"
-            margin="normal"
-          />
-
-          <Button
-            sx={{
-              width: "20%",
-              marginLeft: "auto",
-              padding: "8px",
-              borderRadius: 2,
-              marginTop: 2,
-              fontWeight: "bold",
-              boxShadow: "2px 3px 20px #2B34D9",
-              ":hover": {
-                background: "#4FF5F3",
-                color: "#010305",
-              },
-            }}
-            variant="contained"
-            type="submit"
-          >
-            POST
-          </Button>
-        </Box>
+            rows="3"
+          ></textarea>
+          <br />
+          <br />
+          <div className="btnbox2">
+            <input className="btn2" type="submit" value="POST" />
+          </div>
+        </div>
       </form>
     </div>
   );
