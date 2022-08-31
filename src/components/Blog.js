@@ -10,8 +10,7 @@ import {
 } from "@mui/material";
 import EditTwoToneIcon from "@mui/icons-material/EditTwoTone";
 import DeleteSweepTwoToneIcon from "@mui/icons-material/DeleteSweepTwoTone";
-import ThumbUpTwoToneIcon from "@mui/icons-material/ThumbUpTwoTone";
-import ThumbUpIcon from "@mui/icons-material/ThumbUp";
+
 import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import { useStyles } from "./utils";
