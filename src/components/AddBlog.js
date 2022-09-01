@@ -50,6 +50,8 @@ const AddBlog = () => {
     sendRequest().then(data => console.log(data)).then(()=>navigate("/blogs"));
   };
 
+
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
