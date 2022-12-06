@@ -33,7 +33,7 @@ const AddBlog = () => {
 
   const sendRequest = async () => {
     const res = await axios
-      .post("https://backend-tachyon.herokuapp.com/api/blog/add", {
+      .post("https://tachyon-backend-production-3687.up.railway.app/api/blog/add", {
         title: inputs.title,
         description: inputs.description,
         image: inputs.imageURL,

@@ -5,7 +5,7 @@ const Blogs = () => {
   const [blogs, setBlogs] = useState([]);
   const sendRequest = async () => {
     const res = await axios
-      .get("https://backend-tachyon.herokuapp.com/api/blog")
+      .get("https://tachyon-backend-production-3687.up.railway.app/api/blog")
       .catch((err) => console.log(err));
     const data = await res.data;
     return data;

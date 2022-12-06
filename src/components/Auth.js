@@ -25,7 +25,7 @@ export const Auth = () => {
 
   const sendRequest = async (type = "login") => {
     const res = await axios
-      .post(`https://backend-tachyon.herokuapp.com/api/user/${type}`, {
+      .post(`https://tachyon-backend-production-3687.up.railway.app/api/user/${type}`, {
         name: inputs.name,
         email: inputs.email,
         password: inputs.password,
